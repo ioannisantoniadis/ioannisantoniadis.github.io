@@ -3,80 +3,198 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Projects</title>
+<title>Giannis Antoniadis</title>
+<meta name="description" content="Giannis Antoniadis, machine learning engineer in London: research, learning books and projects.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
 <style>
-:root {
-  --bg: #f5f6f8;
-  --surface: #ffffff;
-  --ink: #141820;
-  --muted: #5a6270;
-  --rule: #dfe3ea;
-  --accent: #2a52d6;
-  --accent-soft: #e6ecfc;
-  --capable: #0e8a6a;
-  --capable-soft: #dcf2ea;
-  --miss: #b0560f;
-  --miss-soft: #f8e9dc;
-  --m-haiku: #0f8b8d;
-  --m-sonnet: #c8622a;
-  --m-qwen: #6f52c4;
-  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --font-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --step--1: 0.8125rem; --step-0: 1rem; --step-1: 1.1875rem; --step-2: 1.5rem; --step-3: 2.125rem; --step-4: clamp(2.25rem, 6vw, 3.75rem);
+/* Layout: a full-bleed night hero with the landscape behind the bio, then one 1080px column of sections, each a label rail on the left and content on the right. */
+.hero { position: relative; background: var(--night); color: var(--night-ink); overflow: hidden; }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: crosshair; touch-action: manipulation; }
+.hero .scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10, 14, 22, 0.92) 0%, rgba(10, 14, 22, 0.72) 42%, rgba(10, 14, 22, 0) 78%); pointer-events: none; }
+.hero .in { position: relative; max-width: 1080px; margin: 0 auto; padding-block: 4.5rem 4rem; display: grid; gap: 1.5rem; pointer-events: none; }
+.hero .in a, .hero .in button { pointer-events: auto; }
+.hero .kicker { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--night-muted); }
+.hero h1 { font-size: var(--step-4); font-weight: 700; letter-spacing: -0.025em; }
+.hero .role { font-size: var(--step-1); max-width: 40ch; color: var(--night-ink); }
+.hero .role b { color: var(--night-glow); font-weight: 600; }
+.hero .links { display: flex; flex-wrap: wrap; gap: 0.6rem; padding-top: 0.5rem; }
+.btn { display: inline-flex; align-items: center; gap: 0.45rem; font-family: var(--font-mono); font-size: var(--step--1); color: var(--night-ink); text-decoration: none; border: 1px solid rgba(231, 234, 242, 0.25); border-radius: 6px; padding: 0.5rem 0.85rem; background: rgba(10, 14, 22, 0.55); }
+.btn:hover { border-color: var(--night-glow); color: var(--night-glow); }
+.btn.primary { background: var(--night-glow); color: var(--night); border-color: var(--night-glow); font-weight: 500; }
+.btn.primary:hover { color: var(--night); filter: brightness(1.08); }
+.btn:focus-visible { outline-color: var(--night-glow); }
+.hero .hint { position: absolute; right: max(16px, env(safe-area-inset-right, 0px)); bottom: 0.9rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--night-muted); pointer-events: none; }
+
+main { max-width: 1080px; margin: 0 auto; }
+.sec { display: grid; grid-template-columns: 13rem minmax(0, 1fr); gap: 1rem 3rem; padding-block: 4rem 0; }
+.sec > .rail { display: grid; gap: 0.4rem; align-content: start; }
+.sec > .rail h2 { font-size: var(--step-2); }
+.sec > .body { display: grid; gap: 1.25rem; min-width: 0; }
+.prose { max-width: 66ch; display: grid; gap: 1rem; }
+
+
+/* Timeline */
+.tl { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-left: 1px solid var(--rule); }
+.tl li { position: relative; padding: 0 0 1.4rem 1.4rem; display: grid; gap: 0.15rem; }
+.tl li::before { content: ""; position: absolute; left: -5px; top: 0.45rem; width: 9px; height: 9px; border-radius: 50%; background: var(--bg); border: 2px solid var(--muted); }
+.tl li.now::before { background: var(--glow); border-color: var(--glow); }
+.tl .when { font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); }
+.tl .what { font-weight: 600; }
+.tl .what a { color: inherit; text-decoration-color: var(--rule); }
+.tl .detail { color: var(--muted); font-size: 0.95rem; }
+
+/* Cards */
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 1.25rem; display: grid; gap: 0.55rem; align-content: start; min-width: 0; }
+.card h3 { font-size: var(--step-1); }
+.card h3 a { color: inherit; text-decoration: none; }
+.card h3 a:hover { color: var(--accent); }
+.card p { color: var(--muted); font-size: 0.95rem; }
+.card .meta { display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem; font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); }
+.card .meta .tag { color: var(--glow); }
+.card .go { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-family: var(--font-mono); font-size: var(--step--1); padding-top: 0.2rem; }
+.feature { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 1.5rem; align-items: center; }
+.feature .mini { background: var(--night); border-radius: 8px; padding: 0.9rem; display: grid; gap: 0.35rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--night-muted); }
+.feature .mini div { display: grid; grid-template-columns: 1.8rem minmax(0, 1fr) auto; gap: 0.5rem; padding: 0.3rem 0.5rem; border-radius: 4px; border: 1px solid rgba(231, 234, 242, 0.1); }
+.feature .mini .ok { color: var(--night-ink); border-color: rgba(244, 195, 90, 0.5); }
+.feature .mini .ok span:last-child { color: var(--night-glow); }
+
+.pubs { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.pubs li { display: grid; gap: 0.2rem; }
+.pubs .venue { font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); }
+
+.contact { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.contact a, .contact .addr { display: inline-flex; gap: 0.5rem; align-items: center; font-family: var(--font-mono); font-size: var(--step--1); padding: 0.55rem 0.9rem; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); text-decoration: none; color: var(--ink); }
+.contact a:hover { border-color: var(--accent); color: var(--accent); }
+.contact .addr { user-select: all; }
+
+@media (max-width: 860px) {
+  .sec { grid-template-columns: minmax(0, 1fr); padding-block: 3rem 0; }
+  .feature { grid-template-columns: minmax(0, 1fr); }
+  .hero .scrim { background: linear-gradient(180deg, rgba(10, 14, 22, 0.55) 0%, rgba(10, 14, 22, 0.88) 55%, rgba(10, 14, 22, 0.94) 100%); }
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0f1218; --surface: #171b23; --ink: #e8ebf1; --muted: #9aa3b2; --rule: #2a303c;
-    --accent: #7f9cff; --accent-soft: #1d2643; --capable: #4cc9a2; --capable-soft: #123329;
-    --miss: #f0a05f; --miss-soft: #3a2615; --m-haiku: #3cc3c5; --m-sonnet: #f08d55; --m-qwen: #a68cff;
-    color-scheme: dark;
-  }
+@media (max-width: 620px) {
+  .cards { grid-template-columns: minmax(0, 1fr); }
+  .hero .in { padding-block: 3rem 3.25rem; }
 }
-:root[data-theme="dark"] {
-  --bg: #0f1218; --surface: #171b23; --ink: #e8ebf1; --muted: #9aa3b2; --rule: #2a303c;
-  --accent: #7f9cff; --accent-soft: #1d2643; --capable: #4cc9a2; --capable-soft: #123329;
-  --miss: #f0a05f; --miss-soft: #3a2615; --m-haiku: #3cc3c5; --m-sonnet: #f08d55; --m-qwen: #a68cff;
-  color-scheme: dark;
-}
-* { box-sizing: border-box; }
-body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.6; margin: 0;
-  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 4rem 4rem; }
-.wrap { max-width: 760px; margin: 0 auto; display: grid; gap: 2.5rem; }
-h1, h2 { font-family: var(--font-display); line-height: 1.12; margin: 0; text-wrap: balance; }
-h1 { font-size: clamp(2.25rem, 6vw, 3.25rem); letter-spacing: -0.02em; }
-h2 { font-size: 1.5rem; }
-p { margin: 0; }
-.label { font-family: var(--font-mono); font-size: 0.8125rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-.lede { font-size: 1.1875rem; color: var(--muted); max-width: 52ch; }
-a { color: var(--accent); text-underline-offset: 2px; }
-a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.project { display: grid; gap: 0.6rem; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 1.5rem; text-decoration: none; color: inherit; }
-.project:hover h2 { color: var(--accent); }
-.meta { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted); }
-.meta b { color: var(--accent); font-weight: 500; }
-footer { color: var(--muted); font-size: 0.8125rem; border-top: 1px solid var(--rule); padding-top: 1.25rem; }
 </style>
 </head>
 <body>
-<main class="wrap">
-  <header style="display:grid;gap:1rem">
-    <span class="label">Projects</span>
-    <h1>Small studies, run by AI agents, held to research rules</h1>
-    <p class="lede">Each project here was carried out by an AI agent under human supervision: preregistered before the first paid call, every result read from code, and every dollar approved at a gate. Findings are reported as they came out, nulls included.</p>
-  </header>
-  <section style="display:grid;gap:1rem">
-    <span class="label">Finished</span>
-    <a class="project" href="click-models/">
-      <div class="meta"><b>null result</b><span>November 2026</span><span>LLM agents · tool selection</span></div>
-      <h2>Does an AI agent pick the first tool it sees?</h2>
-      <p>A preregistered test of whether click models from web search carry over to agents choosing tools from ranked lists. Position tipped choices between equally capable tools in one family, but the effect didn't transfer to others.</p>
-    </a>
+
+<header class="hero">
+  <canvas id="landscape" aria-label="Animated contour map of a loss landscape, with optimizers rolling into its minima"></canvas>
+  <div class="scrim"></div>
+  <div class="in gutter">
+    <span class="kicker">Machine learning engineer · London</span>
+    <h1>Giannis Antoniadis</h1>
+    <p class="role">I build ranking and personalization systems as a machine learning engineer at <b>Spotify</b>, and write books and run small studies on how machine learning works.</p>
+    <div class="links">
+      <a class="btn primary" href="#research">Research</a>
+      <a class="btn" href="#books">Books</a>
+      <a class="btn" href="https://www.dropbox.com/scl/fi/8ivr3wr4eyzgz1rlop83s/iantoniadis_2026.pdf?rlkey=fkofbkvo55g7plw0ni17fajwk&amp;dl=0">CV</a>
+      <a class="btn" href="https://www.linkedin.com/in/iantoniadis/">LinkedIn</a>
+      <a class="btn" href="https://github.com/ioannisantoniadis">GitHub</a>
+    </div>
+  </div>
+  <span class="hint">momentum SGD on a non-convex loss · click to drop an optimizer</span>
+</header>
+
+<main class="gutter">
+
+  <section class="sec" id="path">
+    <div class="rail"><span class="label">Path</span><h2>From circuits to ranking</h2></div>
+    <div class="body">
+      <ol class="tl">
+        <li class="now"><span class="when">now</span><span class="what"><a href="https://www.spotify.com/">Spotify</a>, machine learning engineer</span><span class="detail">Ranking and personalization.</span></li>
+        <li><span class="when">2022 – 2026</span><span class="what"><a href="https://www.expediagroup.com/home/default.aspx">Expedia Group</a>, machine learning scientist, London</span><span class="detail">Four years on large-scale ranking and retrieval with deep learning, LLMs and multimodal methods.</span></li>
+        <li><span class="when">2022</span><span class="what">MSc in Artificial Intelligence, KU Leuven</span><span class="detail">Graduated magna cum laude.</span></li>
+        <li><span class="when">before 2022</span><span class="what"><a href="https://issel.ee.auth.gr/en/13-2/">ISSEL, Aristotle University</a>, ML research engineer</span><span class="detail">Technical lead on an EU energy-monitoring project spanning NLP and real-time event streaming.</span></li>
+        <li><span class="when">earlier</span><span class="what"><a href="https://veltio.com/">Veltio</a>, software engineer</span><span class="detail">Data pipelines and systems for major retailers such as Sainsbury's.</span></li>
+        <li><span class="when">2015</span><span class="what"><a href="https://www.iti.gr/iti/en/home/">CERTH</a>, research associate</span><span class="detail">An EU-funded project on cloud computing, while the field was still young.</span></li>
+        <li><span class="when">2015</span><span class="what">MEng in Electrical and Computer Engineering, Aristotle University of Thessaloniki</span><span class="detail">Top 3% of the class.</span></li>
+      </ol>
+    </div>
   </section>
-  <footer>More projects will appear here as they finish.</footer>
+
+  <section class="sec" id="research">
+    <div class="rail"><span class="label">Research</span><h2>Studies run by AI agents</h2></div>
+    <div class="body">
+      <p class="prose">I run small research studies where an AI agent does the work under my supervision: it preregisters each study before the first paid call, reads every result from code, and asks me before it spends anything. Finished studies get a page here, null results included.</p>
+      <div class="cards">
+        <article class="card feature">
+          <div class="stack" style="display:grid;gap:0.55rem">
+            <div class="meta"><span class="tag">null result</span><span>November 2026</span><span>LLM agents · tool selection</span></div>
+            <h3><a href="click-models/">Does an AI agent pick the first tool it sees?</a></h3>
+            <p>A preregistered test of whether click models from web search carry over to agents choosing tools from ranked lists. Position tipped choices between equally capable tools in one task family, but no stable curve showed up on new ones. 26,820 calls, $18.47.</p>
+            <div class="go"><a href="click-models/">Read the study →</a></div>
+          </div>
+          <div class="mini" aria-hidden="true">
+            <div><span>#1</span><span>dns_record_lookup</span><span>near-miss</span></div>
+            <div class="ok"><span>#2</span><span>ip_geolocate_a</span><span>capable</span></div>
+            <div><span>#3</span><span>whois_registry</span><span>near-miss</span></div>
+            <div class="ok"><span>#4</span><span>ip_geolocate_b</span><span>capable</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="books">
+    <div class="rail"><span class="label">Books</span><h2>Learning from first principles</h2></div>
+    <div class="body">
+      <p class="prose">Long-form learning repositories, each built around real computation: figures generated by code, claims checked by tests.</p>
+      <div class="cards">
+        <article class="card"><div class="meta"><span class="tag">25 chapters</span><span>mathematics</span></div><h3><a href="https://ioannisantoniadis.github.io/math-conceptual-map/">Math Conceptual Map</a></h3><p>Mathematics for people who already know how to use it: why each structure was invented, what it generalizes, and how logic, algebra and probability meet on the way to machine learning.</p><div class="go"><a href="https://ioannisantoniadis.github.io/math-conceptual-map/">Read</a><a href="https://github.com/ioannisantoniadis/math-conceptual-map">Source</a></div></article>
+        <article class="card"><div class="meta"><span class="tag">18 chapters</span><span>modern AI</span></div><h3><a href="https://ioannisantoniadis.github.io/modern-ai-systems-and-methods/">Modern AI Systems and Methods</a></h3><p>A field guide from supervised learning through agents and responsible AI, with computed visualizations and a map of how the chapters connect.</p><div class="go"><a href="https://ioannisantoniadis.github.io/modern-ai-systems-and-methods/">Read</a><a href="https://github.com/ioannisantoniadis/modern-ai-systems-and-methods">Source</a></div></article>
+        <article class="card"><div class="meta"><span class="tag">atlas</span><span>transformers</span></div><h3><a href="https://ioannisantoniadis.github.io/transformer-atlas/visual-map.html">Transformer Atlas</a></h3><p>The transformer from the 2017 original to today's frontier models: attention variants, positional encodings, MoE routing and inference tricks, each with a minimal runnable PyTorch implementation.</p><div class="go"><a href="https://ioannisantoniadis.github.io/transformer-atlas/visual-map.html">Open the map</a><a href="https://github.com/ioannisantoniadis/transformer-atlas">Source</a></div></article>
+        <article class="card"><div class="meta"><span class="tag">~30 algorithms</span><span>optimization</span></div><h3><a href="https://ioannisantoniadis.github.io/optimization-lab/">Optimization Lab</a></h3><p>Classical optimization algorithms from scratch behind one interface, a solver arena to compare them, and applications in physics, economics and ML.</p><div class="go"><a href="https://ioannisantoniadis.github.io/optimization-lab/">Read</a><a href="https://github.com/ioannisantoniadis/optimization-lab">Source</a></div></article>
+        <article class="card"><div class="meta"><span class="tag">derivations</span><span>objectives</span></div><h3><a href="https://ioannisantoniadis.github.io/loss-functions-lab/">Loss Functions Lab</a></h3><p>Where MSE, cross-entropy, hinge loss, RankNet and DPO come from, derived from likelihood, decision theory and surrogate relaxations, ending with a recipe for designing a new objective.</p><div class="go"><a href="https://ioannisantoniadis.github.io/loss-functions-lab/">Read</a><a href="https://github.com/ioannisantoniadis/loss-functions-lab">Source</a></div></article>
+        <article class="card"><div class="meta"><span class="tag">checked exactly</span><span>RL for LLMs</span></div><h3><a href="https://ioannisantoniadis.github.io/rl-for-llms/">RL for LLMs</a></h3><p>RLHF, PPO, DPO, GRPO and their relatives as one idea with different approximations, each derived and checked on a toy language where the optimal policy is known in closed form.</p><div class="go"><a href="https://ioannisantoniadis.github.io/rl-for-llms/">Read</a><a href="https://github.com/ioannisantoniadis/rl-for-llms">Source</a></div></article>
+        <article class="card"><div class="meta"><span class="tag">in progress</span><span>training data</span></div><h3><a href="https://ioannisantoniadis.github.io/data-lab/">Data Lab</a></h3><p>Training data from first principles: transforms, sampling, augmentation, learning curves, scaling laws and data selection, each checked against exact ground truth.</p><div class="go"><a href="https://ioannisantoniadis.github.io/data-lab/">Read</a><a href="https://github.com/ioannisantoniadis/data-lab">Source</a></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="projects">
+    <div class="rail"><span class="label">Projects</span><h2>Things to run</h2></div>
+    <div class="body">
+      <div class="cards">
+        <article class="card"><div class="meta"><span class="tag">live demo</span><span>21 algorithms</span></div><h3><a href="https://algorithm-visualizers.streamlit.app/">Algorithm Visualizers</a></h3><p>Classic ML and CS algorithms, each a from-scratch NumPy implementation with an interactive step-by-step walkthrough: clustering, dimensionality reduction, deep learning building blocks, generative models, graphs and reinforcement learning.</p><div class="go"><a href="https://algorithm-visualizers.streamlit.app/">Open the app</a><a href="https://github.com/ioannisantoniadis/algorithm-visualizers">Source</a></div></article>
+        <article class="card"><div class="meta"><span class="tag">experiment</span><span>artificial life</span></div><h3><a href="https://github.com/ioannisantoniadis/computational-life-lab">Computational Life Lab</a></h3><p>The BFF primordial-soup experiment: self-modifying programs collide and recombine, studied for emergent self-replication with no fitness function and no built-in notion of a replicator.</p><div class="go"><a href="https://github.com/ioannisantoniadis/computational-life-lab">Source</a></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="papers">
+    <div class="rail"><span class="label">Publications</span><h2>Papers</h2></div>
+    <div class="body">
+      <ul class="pubs">
+        <li><a href="https://proceedings.mlr.press/v183/antoniadis22a">Systematic Evaluation of CASH Search Strategies for Unsupervised Anomaly Detection</a><span class="venue">LIDTA 2022 · PMLR vol. 183 · <a href="https://github.com/ioannisantoniadis/cash-for-unsupervised-ad">code</a></span></li>
+        <li><a href="https://ieeexplore.ieee.org/document/8905611">A paper on smart-meter security</a><span class="venue">IEEE Xplore</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="rail"><span class="label">Contact</span><h2>Say hello</h2></div>
+    <div class="body">
+      <div class="contact">
+        <span class="addr" title="Email address">ioannis.antoniadis.uk@gmail.com</span>
+        <a href="https://www.linkedin.com/in/iantoniadis/">LinkedIn</a>
+        <a href="https://github.com/ioannisantoniadis">GitHub</a>
+        <a href="https://www.dropbox.com/scl/fi/8ivr3wr4eyzgz1rlop83s/iantoniadis_2026.pdf?rlkey=fkofbkvo55g7plw0ni17fajwk&amp;dl=0">CV (PDF)</a>
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer class="site-foot gutter">
+  <div class="in"><span>© 2026 Giannis Antoniadis</span><nav><a href="#research">Research</a><a href="#books">Books</a><a href="#projects">Projects</a><a href="https://github.com/ioannisantoniadis/ioannisantoniadis.github.io">Site source</a></nav></div>
+</footer>
+
+<script src="assets/landscape.js"></script>
 </body>
 </html>

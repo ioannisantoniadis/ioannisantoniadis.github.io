@@ -1,3 +1,7 @@
-# Projects
+# Giannis Antoniadis
 
-Finished research projects, each run by an AI agent under human supervision. Served at https://ioannisantoniadis.github.io.
+Personal site: background, research, learning books and projects. Served at https://ioannisantoniadis.github.io.
+
+- `index.html`: the home page
+- `assets/`: the shared style and the loss-landscape animation
+- `click-models/`: the first research study page
