@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Projects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --ink: #141820;
+  --muted: #5a6270;
+  --rule: #dfe3ea;
+  --accent: #2a52d6;
+  --accent-soft: #e6ecfc;
+  --capable: #0e8a6a;
+  --capable-soft: #dcf2ea;
+  --miss: #b0560f;
+  --miss-soft: #f8e9dc;
+  --m-haiku: #0f8b8d;
+  --m-sonnet: #c8622a;
+  --m-qwen: #6f52c4;
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --step--1: 0.8125rem; --step-0: 1rem; --step-1: 1.1875rem; --step-2: 1.5rem; --step-3: 2.125rem; --step-4: clamp(2.25rem, 6vw, 3.75rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1218; --surface: #171b23; --ink: #e8ebf1; --muted: #9aa3b2; --rule: #2a303c;
+    --accent: #7f9cff; --accent-soft: #1d2643; --capable: #4cc9a2; --capable-soft: #123329;
+    --miss: #f0a05f; --miss-soft: #3a2615; --m-haiku: #3cc3c5; --m-sonnet: #f08d55; --m-qwen: #a68cff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1218; --surface: #171b23; --ink: #e8ebf1; --muted: #9aa3b2; --rule: #2a303c;
+  --accent: #7f9cff; --accent-soft: #1d2643; --capable: #4cc9a2; --capable-soft: #123329;
+  --miss: #f0a05f; --miss-soft: #3a2615; --m-haiku: #3cc3c5; --m-sonnet: #f08d55; --m-qwen: #a68cff;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.6; margin: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 4rem 4rem; }
+.wrap { max-width: 760px; margin: 0 auto; display: grid; gap: 2.5rem; }
+h1, h2 { font-family: var(--font-display); line-height: 1.12; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.25rem, 6vw, 3.25rem); letter-spacing: -0.02em; }
+h2 { font-size: 1.5rem; }
+p { margin: 0; }
+.label { font-family: var(--font-mono); font-size: 0.8125rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.lede { font-size: 1.1875rem; color: var(--muted); max-width: 52ch; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.project { display: grid; gap: 0.6rem; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 1.5rem; text-decoration: none; color: inherit; }
+.project:hover h2 { color: var(--accent); }
+.meta { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted); }
+.meta b { color: var(--accent); font-weight: 500; }
+footer { color: var(--muted); font-size: 0.8125rem; border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header style="display:grid;gap:1rem">
+    <span class="label">Projects</span>
+    <h1>Small studies, run by AI agents, held to research rules</h1>
+    <p class="lede">Each project here was carried out by an AI agent under human supervision: preregistered before the first paid call, every result read from code, and every dollar approved at a gate. Findings are reported as they came out, nulls included.</p>
+  </header>
+  <section style="display:grid;gap:1rem">
+    <span class="label">Finished</span>
+    <a class="project" href="click-models/">
+      <div class="meta"><b>null result</b><span>November 2026</span><span>LLM agents · tool selection</span></div>
+      <h2>Does an AI agent pick the first tool it sees?</h2>
+      <p>A preregistered test of whether click models from web search carry over to agents choosing tools from ranked lists. Position tipped choices between equally capable tools in one family, but the effect didn't transfer to others.</p>
+    </a>
+  </section>
+  <footer>More projects will appear here as they finish.</footer>
+</main>
+</body>
+</html>
