@@ -51,7 +51,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .topbar .home { font-family: var(--font-display); font-weight: 700; color: var(--night-ink); text-decoration: none; font-size: 1.05rem; }
 .topbar nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
 .topbar nav a { color: var(--night-muted); text-decoration: none; font-family: var(--font-mono); font-size: var(--step--1); }
-.topbar nav a:hover, .topbar nav a[aria-current="page"] { color: var(--night-glow); }
+.topbar nav a[aria-current="page"] { color: var(--night-ink); }
+.topbar nav a:hover { color: var(--night-glow); }
 .topbar a:focus-visible { outline-color: var(--night-glow); }
 
 /* Footer, shared */
