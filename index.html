@@ -69,10 +69,6 @@ main { max-width: 1080px; margin: 0 auto; }
 .pubs .venue { font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); }
 .pubs .ptitle { font-weight: 600; }
 
-.contact { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-.contact a, .contact .addr { display: inline-flex; gap: 0.5rem; align-items: center; font-family: var(--font-mono); font-size: var(--step--1); padding: 0.55rem 0.9rem; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); text-decoration: none; color: var(--ink); }
-.contact a:hover { border-color: var(--accent); color: var(--accent); }
-.contact .addr { user-select: all; }
 
 @media (max-width: 860px) {
   .sec { grid-template-columns: minmax(0, 1fr); padding-block: 3rem 0; }
@@ -94,11 +90,12 @@ main { max-width: 1080px; margin: 0 auto; }
     <span class="kicker">Machine learning engineer · London</span>
     <h1>Giannis Antoniadis</h1>
     <p class="role">I build ranking and personalization systems as a machine learning engineer at <b>Spotify</b>, and write books and run small studies on how machine learning works.</p>
-    <nav class="sections" aria-label="On this page"><a href="#path">Path</a><a href="#research">Research</a><a href="#books">Books</a><a href="#projects">Projects</a><a href="#papers">Papers</a><a href="#contact">Contact</a></nav>
+    <nav class="sections" aria-label="On this page"><a href="#path">Path</a><a href="#research">Research</a><a href="#books">Books</a><a href="#projects">Projects</a><a href="#papers">Papers</a></nav>
     <div class="links">
       <a class="btn" href="https://www.dropbox.com/scl/fi/8ivr3wr4eyzgz1rlop83s/iantoniadis_2026.pdf?rlkey=fkofbkvo55g7plw0ni17fajwk&amp;dl=0">CV</a>
       <a class="btn" href="https://www.linkedin.com/in/iantoniadis/">LinkedIn</a>
       <a class="btn" href="https://github.com/ioannisantoniadis">GitHub</a>
+      <a class="btn" href="mailto:ioannis.antoniadis.uk@gmail.com">E-mail</a>
     </div>
   </div>
   <span class="hint">momentum SGD on a non-convex loss · click to drop an optimizer</span>
@@ -180,17 +177,6 @@ main { max-width: 1080px; margin: 0 auto; }
     </div>
   </section>
 
-  <section class="sec" id="contact">
-    <div class="rail"><span class="label">Contact</span><h2>Say hello</h2></div>
-    <div class="body">
-      <div class="contact">
-        <span class="addr" title="Email address">ioannis.antoniadis.uk@gmail.com</span>
-        <a href="https://www.linkedin.com/in/iantoniadis/">LinkedIn</a>
-        <a href="https://github.com/ioannisantoniadis">GitHub</a>
-        <a href="https://www.dropbox.com/scl/fi/8ivr3wr4eyzgz1rlop83s/iantoniadis_2026.pdf?rlkey=fkofbkvo55g7plw0ni17fajwk&amp;dl=0">CV (PDF)</a>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer class="site-foot gutter">
