@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Giannis Antoniadis</title>
-<meta name="description" content="Giannis Antoniadis, machine learning engineer in London: research, learning books and projects.">
+<meta name="description" content="Giannis (Ioannis) Antoniadis, machine learning engineer in London, United Kingdom: research, learning books and projects.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Giannis Antoniadis","alternateName":"Ioannis Antoniadis","jobTitle":"Machine Learning Engineer","worksFor":{"@type":"Organization","name":"Spotify"},"address":{"@type":"PostalAddress","addressLocality":"London","addressCountry":"GB"},"url":"https://ioannisantoniadis.github.io/","sameAs":["https://www.linkedin.com/in/iantoniadis/","https://github.com/ioannisantoniadis"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -18,6 +19,12 @@
 .hero .in a, .hero .in button { pointer-events: auto; }
 .hero .kicker { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--night-muted); }
 .hero h1 { font-size: var(--step-4); font-weight: 700; letter-spacing: -0.025em; }
+.hero .name { display: grid; gap: 0.6rem; }
+.hero .aka { font-size: 0.95rem; color: var(--night-muted); max-width: 46ch; }
+.hero .place { display: inline-flex; align-items: center; gap: 0.55rem; justify-self: start; font-family: var(--font-mono); font-size: var(--step--1); color: var(--night-ink); border: 1px solid rgba(231, 234, 242, 0.18); border-radius: 999px; padding: 0.35rem 0.85rem 0.35rem 0.6rem; background: rgba(10, 14, 22, 0.55); }
+.hero .place svg { width: 15px; height: 15px; color: var(--night-glow); flex: none; }
+.hero .place .clock { color: var(--night-muted); }
+.hero .place .clock:empty { display: none; }
 .hero .role { font-size: var(--step-1); max-width: 40ch; color: var(--night-ink); }
 .hero .role b { color: var(--night-ink); font-weight: 600; }
 .hero .sections { display: flex; flex-wrap: wrap; gap: 0.35rem 1.4rem; padding-top: 0.25rem; }
@@ -87,8 +94,12 @@ main { max-width: 1080px; margin: 0 auto; }
   <canvas id="landscape" aria-label="Animated contour map of a loss landscape, with optimizers rolling into its minima"></canvas>
   <div class="scrim"></div>
   <div class="in gutter">
-    <span class="kicker">Machine learning engineer · London</span>
-    <h1>Giannis Antoniadis</h1>
+    <span class="kicker">Machine Learning Engineer</span>
+    <div class="name">
+      <h1>Giannis Antoniadis</h1>
+      <p class="aka">Giannis is short for Ioannis, my legal name. That's why my links say ioannis.</p>
+    </div>
+    <span class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>London, United Kingdom<span class="clock" id="london-time"></span></span>
     <p class="role">I build ranking and personalization systems as a machine learning engineer at <b>Spotify</b>, and write books and run small studies on how machine learning works.</p>
     <nav class="sections" aria-label="On this page"><a href="#path">Path</a><a href="#research">Research</a><a href="#books">Books</a><a href="#projects">Projects</a><a href="#papers">Papers</a></nav>
     <div class="links">
@@ -104,16 +115,16 @@ main { max-width: 1080px; margin: 0 auto; }
 <main class="gutter">
 
   <section class="sec" id="path">
-    <div class="rail"><span class="label">Path</span><h2>From circuits to ranking</h2></div>
+    <div class="rail"><span class="label">Path</span><h2>A decade across research and industry</h2></div>
     <div class="body">
       <ol class="tl">
-        <li class="now"><span class="when">now</span><span class="what"><a href="https://www.spotify.com/">Spotify</a>, machine learning engineer</span><span class="detail">Ranking and personalization.</span></li>
-        <li><span class="when">2022 – 2026</span><span class="what"><a href="https://www.expediagroup.com/home/default.aspx">Expedia Group</a>, machine learning scientist, London</span><span class="detail">Four years on large-scale ranking and retrieval with deep learning, LLMs and multimodal methods.</span></li>
-        <li><span class="when">2022</span><span class="what">MSc in Artificial Intelligence, KU Leuven</span><span class="detail">Graduated magna cum laude.</span></li>
-        <li><span class="when">2018 – 2021</span><span class="what"><a href="https://issel.ee.auth.gr/en/13-2/">ISSEL, Aristotle University</a>, ML research engineer</span><span class="detail">Technical lead on an EU energy-monitoring project spanning NLP and real-time event streaming.</span></li>
-        <li><span class="when">2016 – 2018</span><span class="what"><a href="https://veltio.com/">Veltio</a>, software engineer</span><span class="detail">Data pipelines and systems for major retailers such as Sainsbury's.</span></li>
-        <li><span class="when">2015 – 2016</span><span class="what"><a href="https://www.iti.gr/iti/en/home/">CERTH</a>, research associate</span><span class="detail">An EU-funded project on cloud computing, while the field was still young.</span></li>
-        <li><span class="when">2015</span><span class="what">MEng in Electrical and Computer Engineering, Aristotle University of Thessaloniki</span><span class="detail">Top 3% of the class.</span></li>
+        <li class="now"><span class="when">now</span><span class="what"><a href="https://www.spotify.com/">Spotify</a> · Machine Learning Engineer</span><span class="detail">Ranking and personalization.</span></li>
+        <li><span class="when">2022 – 2026</span><span class="what"><a href="https://www.expediagroup.com/home/default.aspx">Expedia Group</a> · Machine Learning Scientist</span><span class="detail">Four years on large-scale ranking and retrieval with deep learning, LLMs and multimodal methods.</span></li>
+        <li><span class="when">2022</span><span class="what">KU Leuven · MSc in Artificial Intelligence</span><span class="detail">Graduated magna cum laude.</span></li>
+        <li><span class="when">2018 – 2021</span><span class="what"><a href="https://issel.ee.auth.gr/en/13-2/">ISSEL, Aristotle University</a> · Machine Learning Research Engineer</span><span class="detail">Technical lead on an EU energy-monitoring project spanning NLP and real-time event streaming.</span></li>
+        <li><span class="when">2016 – 2018</span><span class="what"><a href="https://veltio.com/">Veltio</a> · Software Engineer</span><span class="detail">Data pipelines and systems for major retailers such as Sainsbury's.</span></li>
+        <li><span class="when">2015 – 2016</span><span class="what"><a href="https://www.iti.gr/iti/en/home/">CERTH</a> · Research Associate</span><span class="detail">An EU-funded project on cloud computing, while the field was still young.</span></li>
+        <li><span class="when">2015</span><span class="what">Aristotle University of Thessaloniki · MEng in Electrical and Computer Engineering</span><span class="detail">Top 3% of the class.</span></li>
       </ol>
     </div>
   </section>
@@ -183,6 +194,16 @@ main { max-width: 1080px; margin: 0 auto; }
   <div class="in"><span>© 2026 Giannis Antoniadis</span><nav><a href="#path">Path</a><a href="#research">Research</a><a href="#books">Books</a><a href="#projects">Projects</a><a href="#papers">Papers</a><a href="https://github.com/ioannisantoniadis/ioannisantoniadis.github.io">Site source</a></nav></div>
 </footer>
 
+<script>
+// London's local time beside the location; the chip reads fine without it.
+(function () {
+  const el = document.getElementById("london-time");
+  if (!el || !window.Intl) return;
+  const fmt = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/London", hour: "2-digit", minute: "2-digit" });
+  const tick = () => { el.textContent = "· " + fmt.format(new Date()) + " local time"; };
+  tick(); setInterval(tick, 30000);
+})();
+</script>
 <script src="assets/landscape.js"></script>
 </body>
 </html>
