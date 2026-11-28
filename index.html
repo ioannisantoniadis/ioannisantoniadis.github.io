@@ -23,8 +23,6 @@
 .hero .aka { font-size: 0.95rem; color: var(--night-muted); max-width: 46ch; }
 .hero .place { display: inline-flex; align-items: center; gap: 0.55rem; justify-self: start; font-family: var(--font-mono); font-size: var(--step--1); color: var(--night-ink); border: 1px solid rgba(231, 234, 242, 0.18); border-radius: 999px; padding: 0.35rem 0.85rem 0.35rem 0.6rem; background: rgba(10, 14, 22, 0.55); }
 .hero .place svg { width: 15px; height: 15px; color: var(--night-glow); flex: none; }
-.hero .place .clock { color: var(--night-muted); }
-.hero .place .clock:empty { display: none; }
 .hero .role { font-size: var(--step-1); max-width: 40ch; color: var(--night-ink); }
 .hero .role b { color: var(--night-ink); font-weight: 600; }
 .hero .sections { display: flex; flex-wrap: wrap; gap: 0.35rem 1.4rem; padding-top: 0.25rem; }
@@ -97,11 +95,11 @@ main { max-width: 1080px; margin: 0 auto; }
     <span class="kicker">Machine Learning Engineer</span>
     <div class="name">
       <h1>Giannis Antoniadis</h1>
-      <p class="aka">Giannis is short for Ioannis, my legal name. That's why my links say ioannis.</p>
+      <p class="aka">Giannis is short for Ioannis, my legal name.</p>
     </div>
-    <span class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>London, United Kingdom<span class="clock" id="london-time"></span></span>
+    <span class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>London, United Kingdom</span>
     <p class="role">I build ranking and personalization systems as a machine learning engineer at <b>Spotify</b>, and write books and run small studies on how machine learning works.</p>
-    <nav class="sections" aria-label="On this page"><a href="#path">Path</a><a href="#research">Research</a><a href="#books">Books</a><a href="#projects">Projects</a><a href="#papers">Papers</a></nav>
+    <nav class="sections" aria-label="On this page"><a href="#path">Path</a><a href="#projects">Projects</a><a href="#books">Books</a><a href="#papers">Papers</a></nav>
     <div class="links">
       <a class="btn" href="https://www.dropbox.com/scl/fi/8ivr3wr4eyzgz1rlop83s/iantoniadis_2026.pdf?rlkey=fkofbkvo55g7plw0ni17fajwk&amp;dl=0">CV</a>
       <a class="btn" href="https://www.linkedin.com/in/iantoniadis/">LinkedIn</a>
@@ -129,10 +127,10 @@ main { max-width: 1080px; margin: 0 auto; }
     </div>
   </section>
 
-  <section class="sec" id="research">
-    <div class="rail"><span class="label">Research</span><h2>Studies run by AI agents</h2></div>
+  <section class="sec" id="projects">
+    <div class="rail"><span class="label">Projects</span><h2>Studies and things to run</h2></div>
     <div class="body">
-      <p class="prose">I run small research studies where an AI agent does the work under my supervision: it preregisters each study before the first paid call, reads every result from code, and asks me before it spends anything. Finished studies get a page here, null results included.</p>
+      <p class="prose">Research studies where an AI agent does the work under my supervision: it preregisters each study before the first paid call, reads every result from code, and asks me before it spends anything. Finished studies get a page here, null results included. Alongside them, software you can run.</p>
       <div class="cards">
         <article class="card feature">
           <div class="stack" style="display:grid;gap:0.55rem">
@@ -148,6 +146,8 @@ main { max-width: 1080px; margin: 0 auto; }
             <div class="ok"><span>#4</span><span>ip_geolocate_b</span><span>capable</span></div>
           </div>
         </article>
+        <article class="card"><div class="meta"><span class="tag">live demo</span><span>21 algorithms</span></div><h3><a href="https://algorithm-visualizers.streamlit.app/">Algorithm Visualizers</a></h3><p>Classic ML and CS algorithms, each a from-scratch NumPy implementation with an interactive step-by-step walkthrough: clustering, dimensionality reduction, deep learning building blocks, generative models, graphs and reinforcement learning.</p><div class="go"><a href="https://algorithm-visualizers.streamlit.app/">Open the app</a><a href="https://github.com/ioannisantoniadis/algorithm-visualizers">Source</a></div></article>
+        <article class="card"><div class="meta"><span class="tag">experiment</span><span>artificial life</span></div><h3><a href="https://github.com/ioannisantoniadis/computational-life-lab">Computational Life Lab</a></h3><p>The BFF primordial-soup experiment: self-modifying programs collide and recombine, studied for emergent self-replication with no fitness function and no built-in notion of a replicator.</p><div class="go"><a href="https://github.com/ioannisantoniadis/computational-life-lab">Source</a></div></article>
       </div>
     </div>
   </section>
@@ -168,16 +168,6 @@ main { max-width: 1080px; margin: 0 auto; }
     </div>
   </section>
 
-  <section class="sec" id="projects">
-    <div class="rail"><span class="label">Projects</span><h2>Things to run</h2></div>
-    <div class="body">
-      <div class="cards">
-        <article class="card"><div class="meta"><span class="tag">live demo</span><span>21 algorithms</span></div><h3><a href="https://algorithm-visualizers.streamlit.app/">Algorithm Visualizers</a></h3><p>Classic ML and CS algorithms, each a from-scratch NumPy implementation with an interactive step-by-step walkthrough: clustering, dimensionality reduction, deep learning building blocks, generative models, graphs and reinforcement learning.</p><div class="go"><a href="https://algorithm-visualizers.streamlit.app/">Open the app</a><a href="https://github.com/ioannisantoniadis/algorithm-visualizers">Source</a></div></article>
-        <article class="card"><div class="meta"><span class="tag">experiment</span><span>artificial life</span></div><h3><a href="https://github.com/ioannisantoniadis/computational-life-lab">Computational Life Lab</a></h3><p>The BFF primordial-soup experiment: self-modifying programs collide and recombine, studied for emergent self-replication with no fitness function and no built-in notion of a replicator.</p><div class="go"><a href="https://github.com/ioannisantoniadis/computational-life-lab">Source</a></div></article>
-      </div>
-    </div>
-  </section>
-
   <section class="sec" id="papers">
     <div class="rail"><span class="label">Publications</span><h2>Papers</h2></div>
     <div class="body">
@@ -191,19 +181,9 @@ main { max-width: 1080px; margin: 0 auto; }
 </main>
 
 <footer class="site-foot gutter">
-  <div class="in"><span>© 2026 Giannis Antoniadis</span><nav><a href="#path">Path</a><a href="#research">Research</a><a href="#books">Books</a><a href="#projects">Projects</a><a href="#papers">Papers</a><a href="https://github.com/ioannisantoniadis/ioannisantoniadis.github.io">Site source</a></nav></div>
+  <div class="in"><span>© 2026 Giannis Antoniadis</span><nav><a href="#path">Path</a><a href="#projects">Projects</a><a href="#books">Books</a><a href="#papers">Papers</a><a href="https://github.com/ioannisantoniadis/ioannisantoniadis.github.io">Site source</a></nav></div>
 </footer>
 
-<script>
-// London's local time beside the location; the chip reads fine without it.
-(function () {
-  const el = document.getElementById("london-time");
-  if (!el || !window.Intl) return;
-  const fmt = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/London", hour: "2-digit", minute: "2-digit" });
-  const tick = () => { el.textContent = "· " + fmt.format(new Date()) + " local time"; };
-  tick(); setInterval(tick, 30000);
-})();
-</script>
 <script src="assets/landscape.js"></script>
 </body>
 </html>
